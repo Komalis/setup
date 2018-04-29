@@ -11,8 +11,9 @@
 	d = difftool
 	st = status
 	co = checkout
-	cm= commit -m
 	br = branch
+	cm = commit -m
+	ap = add -p
 [color "status"]
 	untracked = cyan
 [core]
