@@ -1,1 +1,1 @@
-alias cc="clear"
+alias cl='clear'
