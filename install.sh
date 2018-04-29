@@ -70,17 +70,10 @@ install_vim_bundles_requirements () {
     then
         warning "to install missing packages, run sudo apt-get install$to_install"
     fi
-
-    info "installing vim bundles required software"
-    php_cs_fixer_path="/usr/local/bin/php-cs-fixer"
-    if [ ! -e $php_cs_fixer_path ]
-    then
-        warning "to install php-cs-fixer, run sudo wget http://cs.sensiolabs.org/get/php-cs-fixer.phar -O $php_cs_fixer_path;sudo chmod a+x $php_cs_fixer_path"
-    fi
 }
 
 install
-# setup_vim
-# install_vim_bundles
-# install_vim_bundles_requirements
+setup_vim
+install_vim_bundles
+install_vim_bundles_requirements
 info "done"
