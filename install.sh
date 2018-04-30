@@ -26,7 +26,7 @@ install () {
 
     for dotfile in `ls`
     do
-        if [ "$dotfile" == "install.sh" ]
+        if [ "$dotfile" == "install.sh" ] || [ "$dotfile" == "README.md" ]
         then
             continue
         fi
