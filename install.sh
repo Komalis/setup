@@ -30,13 +30,20 @@ install () {
         then
             continue
         fi
-        dest="$HOME/.`basename \"${dotfile%.*}\"`"
+        if [ "$dotfile" == "tmux.conf" ]
+        then
+            dest="$HOME/.tmux.conf"
+        else
+            dest="$HOME/.`basename \"${dotfile%.*}\"`"
+        fi
 	echo $dest
         rm -rf $dest
         ln -s $ROOT/$dotfile $dest
         success "linked $ROOT/$dotfile -> $dest"
     done
-	
+
+    sudo apt-get install fonts-powerline
+
 }
 
 setup_vim () {
