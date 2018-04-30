@@ -42,8 +42,6 @@ install () {
         success "linked $ROOT/$dotfile -> $dest"
     done
 
-    sudo apt-get install fonts-powerline
-
 }
 
 setup_vim () {
