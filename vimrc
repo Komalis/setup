@@ -8,6 +8,7 @@ call vundle#begin()
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'tpope/vim-fugitive'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
@@ -107,6 +108,8 @@ set encoding=utf8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
+
+colorscheme molokai
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
