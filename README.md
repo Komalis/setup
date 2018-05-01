@@ -13,3 +13,19 @@ For a better diplaying of airline :
 4. `Set-ExecutionPolicy Bypass`
 5. `.\install.ps1`
 6. `Select new installed font`
+
+### SSH
+If necessary, generate a new ssh key (public/private)
+`ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`
+
+Generate ssh config file
+`touch ~/.ssh/config`
+
+Add host config
+```
+Host github.com
+        User git
+        Hostname github.com
+        PreferredAuthentications publickey
+        IdentityFile ~/.ssh/id_rsa_home
+```
