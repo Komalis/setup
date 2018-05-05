@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ROOT="`pwd`"
-VIM_PACKAGES=(ack-grep exuberant-ctags)
+VIM_PACKAGES=(aptitude ack-grep exuberant-ctags)
 
 set -e
 
