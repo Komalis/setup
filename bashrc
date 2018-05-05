@@ -116,9 +116,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
+# display branch
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
 export PS1='\e[38;5;10m\u@\h\e[39m:\e[1;36m\w\e[38;5;229m$(parse_git_branch) \e[39m$ '
+
+# ssh keys
+eval `ssh-agent`
+ssh-add ~/.ssh/home_id_rsa
