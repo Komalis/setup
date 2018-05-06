@@ -9,6 +9,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'morhetz/gruvbox'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
@@ -90,9 +91,7 @@ set tm=500
 syntax enable 
 
 " Enable 256 colors palette in Gnome Terminal
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
+set t_Co=256
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -108,7 +107,11 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
+set background=dark
 colorscheme molokai
+
+hi Normal ctermbg=none
+highlight NonText ctermbg=none
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
