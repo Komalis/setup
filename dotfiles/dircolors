@@ -1,5 +1,4 @@
 FILE 38;5;144
-DIR 38;5;202
 STICKY_OTHER_WRITABLE 00
 OTHER_WRITABLE 00
 EXEC 92
@@ -9,6 +8,6 @@ EXEC 92
 .yaml 38;5;226
 .txt 00
 .md 00
-.tar 01;31 
-.tgz 01;31 
+.tar 01;31
+.tgz 01;31
 *Makefile 38;5;196
