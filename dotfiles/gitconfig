@@ -1,6 +1,6 @@
 [user]
-	email = zerroug.youcef@gmail.com
-	name = ZERROUG Youcef
+    email = zerroug.youcef@gmail.com
+    name = ZERROUG Youcef
 [merge]
 	tool = vimdiff
 [diff]
