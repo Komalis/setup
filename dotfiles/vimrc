@@ -28,6 +28,9 @@ filetype indent on
 " Set to auto read when a file is changed from the outside
 set autoread
 
+" Remove trailing whitespaces
+autocmd BufWritePre * %s/\s\+$//e
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -60,20 +63,20 @@ set whichwrap+=<,>,h,l
 " Ignore case when searching
 set ignorecase
 
-" When searching try to be smart about cases 
+" When searching try to be smart about cases
 set smartcase
 
 " Highlight search results
 set hlsearch
 
 " Makes search act like search in modern browsers
-set incsearch 
+set incsearch
 
 " Don't redraw while executing macros (good performance config)
-set lazyredraw 
+set lazyredraw
 
 " Show matching brackets when text indicator is over them
-set showmatch 
+set showmatch
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
@@ -88,7 +91,7 @@ set tm=500
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
-syntax enable 
+syntax enable
 
 " Enable 256 colors palette in Gnome Terminal
 set t_Co=256
@@ -164,3 +167,19 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 """"""""""""""""""""""""""""""
 " Always show the status line
 set laststatus=2
+
+
+""""""""""""""""""""""""""""""
+" => Custom Commands
+""""""""""""""""""""""""""""""
+:command Pdb :normal oimport pdb;pdb.set_trace()<ESC>
+:command Main :call Main()
+:command CsvSql :call CsvSql()
+
+function! Main()
+    r~/.vim/snippets/main.txt
+endfunction
+
+function! CsvSql()
+    r~/.vim/snippets/csv_sql.txt
+endfunction
