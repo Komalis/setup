@@ -1,5 +1,0 @@
-COPY(
-
-
-
-)TO '/tmp/export.csv' CSV HEADER DELIMITER ';';
