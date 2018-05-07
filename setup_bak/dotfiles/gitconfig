@@ -1,0 +1,22 @@
+[user]
+    email = zerroug.youcef@gmail.com
+    name = ZERROUG Youcef
+[merge]
+	tool = vimdiff
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
+	st = status
+	co = checkout
+	br = branch
+	cm = commit -m
+	ap = add -p
+[color "status"]
+	untracked = cyan
+[core]
+	editor = vim
+[web]
+	browser = chrome
