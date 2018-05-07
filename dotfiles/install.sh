@@ -45,7 +45,7 @@ install () {
 
 setup_vim () {
     info "setting up vim"
-    vim_version=`vim --version | head -1 | grep -o '[[:digit:]]\.[[:digit:]]'` 
+    vim_version=`vim --version | head -1 | grep -o '[[:digit:]]\.[[:digit:]]'`
     info 'vim version: '$vim_version
 }
 
@@ -59,3 +59,4 @@ install
 setup_vim
 install_vim_bundles
 info "done"
+
