@@ -9,6 +9,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
@@ -26,6 +28,13 @@ filetype indent on
 
 " Set to auto read when a file is changed from the outside
 set autoread
+
+" Remove trailing whitespaces
+autocmd BufWritePre * %s/\s\+$//e
+
+"MapLeader
+let mapleader = ','
+let g:mapleader = ','
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -59,20 +68,20 @@ set whichwrap+=<,>,h,l
 " Ignore case when searching
 set ignorecase
 
-" When searching try to be smart about cases 
+" When searching try to be smart about cases
 set smartcase
 
 " Highlight search results
 set hlsearch
 
 " Makes search act like search in modern browsers
-set incsearch 
+set incsearch
 
 " Don't redraw while executing macros (good performance config)
-set lazyredraw 
+set lazyredraw
 
 " Show matching brackets when text indicator is over them
-set showmatch 
+set showmatch
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
@@ -87,12 +96,10 @@ set tm=500
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
-syntax enable 
+syntax enable
 
 " Enable 256 colors palette in Gnome Terminal
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
+set t_Co=256
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -108,25 +115,11 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
+set background=dark
 colorscheme molokai
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Airline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme='murmur'
-
-let g:airline_powerline_fonts = 1
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_right_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_left_alt_sep= ''
-let g:airline_left_sep = ''"
+hi Normal ctermbg=none
+highlight NonText ctermbg=none
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -161,3 +154,65 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 """"""""""""""""""""""""""""""
 " Always show the status line
 set laststatus=2
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Airline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:airline_theme='murmur'
+
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_right_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_left_alt_sep= ''
+let g:airline_left_sep = ''"
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => NERDCommenter
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+map <leader><space> <leader>c<space>
+
+""""""""""""""""""""""""""""""
+" => Syntastic/Linter
+""""""""""""""""""""""""""""""
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_loc_list_height = 3
+
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_post_args="--max-line-length=180"
+
+
+""""""""""""""""""""""""""""""
+" => Custom Commands
+""""""""""""""""""""""""""""""
+:command Pdb :normal oimport pdb;pdb.set_trace()<ESC>
+:command Main :call Main()
+:command CsvSql :call CsvSql()
+
+function! Main()
+    r~/.vim/snippets/main.txt
+endfunction
+
+function! CsvSql()
+    r~/.vim/snippets/csv_sql.txt
+endfunction
