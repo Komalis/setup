@@ -8,4 +8,3 @@ then
 else
 	echo "pyenv seems to be already installed. Please check cloned repo and your bashrc"
 fi
-

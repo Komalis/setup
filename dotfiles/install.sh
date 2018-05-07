@@ -59,4 +59,3 @@ install
 setup_vim
 install_vim_bundles
 info "done"
-

@@ -8,4 +8,3 @@ apt-get install tmux
 # VIM
 apt-get install vim vim-gtk
 apt-get install aptitude ack-grep exuberant-ctags
-
