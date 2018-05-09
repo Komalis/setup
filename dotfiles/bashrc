@@ -123,10 +123,6 @@ parse_git_branch() {
 
 export PS1=$PS1'\e[1;38;5;135m$(parse_git_branch) \e[39m$ '
 
-# ssh keys
-eval `ssh-agent`
-ssh-add ~/.ssh/home_id_rsa
-
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
