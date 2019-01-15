@@ -36,7 +36,6 @@ autocmd BufWritePre * %s/\s\+$//e
 let mapleader = ','
 let g:mapleader = ','
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -149,6 +148,10 @@ set wrap "Wrap lines
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
+
+" Selection Highlight
+"highlight Visual cterm=bold ctermbg=Blue ctermfg=NONE
+highlight Visual ctermbg=178
 
 """"""""""""""""""""""""""""""
 " => Status line
