@@ -128,9 +128,5 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/youcefz/Downloads/google-cloud-sdk/path.bash.inc' ]; then source '/Users/youcefz/Downloads/google-cloud-sdk/path.bash.inc'; fi
-if [ -f '/Users/youcefz/Downloads/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/youcefz/Downloads/google-cloud-sdk/completion.bash.inc'; fi
-
 eval `ssh-agent`
 # ssh-add ~/.ssh/youcefz_home_id_rsa
