@@ -220,3 +220,18 @@ endfunction
 function! CsvSql()
     r~/.vim/snippets/csv_sql.txt
 endfunction
+
+""""""""""""""""""""""""""""""
+" Convert rows to a tuple
+"""""""""""""""""""""""""""""
+
+function! ToTupleFunction() range
+    silent execute a:firstline . "," . a:lastline . "s/^/'/"
+    silent execute a:firstline . "," . a:lastline . "s/$/',/"
+    silent execute a:firstline . "," . a:lastline . "join"
+    silent execute "normal I("
+    silent execute "normal $xa)"
+    silent execute "normal ggVGYY"
+endfunction
+
+command! -range TT <line1>,<line2> call ToTupleFunction()
